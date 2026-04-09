@@ -20,15 +20,12 @@ st.set_page_config(
 # ============================================
 st.markdown("""
 <style>
-    /* Import Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-    /* Global Styles */
     .stApp {
         font-family: 'Inter', sans-serif;
     }
 
-    /* Main Header */
     .main-header {
         font-size: 3.5rem;
         font-weight: 900;
@@ -57,7 +54,6 @@ st.markdown("""
         font-weight: 400;
     }
 
-    /* Brand Badge */
     .brand-badge {
         background: linear-gradient(135deg, #FF0000, #CC0000);
         color: white;
@@ -73,7 +69,6 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
     }
 
-    /* Feature Cards */
     .feature-card {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         padding: 25px;
@@ -102,7 +97,6 @@ st.markdown("""
         line-height: 1.5;
     }
 
-    /* Buttons */
     .stButton > button {
         background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%) !important;
         color: white !important;
@@ -121,7 +115,6 @@ st.markdown("""
         box-shadow: 0 8px 30px rgba(255, 0, 0, 0.5) !important;
     }
 
-    /* Result Container */
     .result-box {
         background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
         padding: 35px;
@@ -134,7 +127,6 @@ st.markdown("""
         margin: 20px 0;
     }
 
-    /* Stats Cards */
     .stat-card {
         background: linear-gradient(135deg, #FF0000, #FF4444);
         padding: 20px;
@@ -156,7 +148,6 @@ st.markdown("""
         opacity: 0.9;
     }
 
-    /* Sidebar Styles */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #0a0a1a 0%, #111128 100%);
     }
@@ -167,7 +158,6 @@ st.markdown("""
         color: #FF6B6B;
     }
 
-    /* Tool Selector */
     .tool-header {
         font-size: 1.3rem;
         font-weight: 700;
@@ -177,7 +167,6 @@ st.markdown("""
         margin-bottom: 15px;
     }
 
-    /* Input Fields */
     .stTextInput > div > div > input {
         border-radius: 10px !important;
         border: 2px solid rgba(255, 107, 107, 0.2) !important;
@@ -190,13 +179,11 @@ st.markdown("""
         box-shadow: 0 0 15px rgba(255, 0, 0, 0.1) !important;
     }
 
-    /* Expander */
     .streamlit-expanderHeader {
         font-weight: 600 !important;
         color: #FF6B6B !important;
     }
 
-    /* Footer */
     .footer-section {
         text-align: center;
         padding: 40px 20px;
@@ -214,14 +201,6 @@ st.markdown("""
         line-height: 1.8;
     }
 
-    /* Pulse Animation for Generate Button */
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4); }
-        70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
-    }
-
-    /* Success Message */
     .success-banner {
         background: linear-gradient(135deg, #00b09b, #96c93d);
         color: white;
@@ -233,7 +212,6 @@ st.markdown("""
         margin: 15px 0;
     }
 
-    /* Loading Spinner */
     .loading-text {
         text-align: center;
         font-size: 1.2rem;
@@ -241,7 +219,6 @@ st.markdown("""
         font-weight: 600;
     }
 
-    /* Divider */
     .custom-divider {
         height: 2px;
         background: linear-gradient(90deg, transparent, #FF0000, transparent);
@@ -256,7 +233,6 @@ st.markdown("""
 # 📱 SIDEBAR - CONTROL PANEL
 # ============================================
 with st.sidebar:
-    # SemTube Logo Area
     st.markdown("""
     <div style='text-align: center; padding: 20px 0;'>
         <div style='font-size: 3rem; margin-bottom: 5px;'>🎬</div>
@@ -275,7 +251,6 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # API Key Input
     st.markdown("### 🔑 API Configuration")
     api_key = st.text_input(
         "Gemini API Key:",
@@ -284,7 +259,6 @@ with st.sidebar:
         placeholder="Paste your API key here..."
     )
 
-    # Connection Status
     if api_key:
         st.success("✅ API Key Connected")
     else:
@@ -292,7 +266,6 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # System Status Dashboard
     st.markdown("### 📊 System Status")
 
     status_col1, status_col2 = st.columns(2)
@@ -303,7 +276,6 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # Quick Start Guide
     st.markdown("### 🚀 Quick Start")
     st.markdown("""
     <div style='font-size: 0.85rem; line-height: 2; color: #ccc;'>
@@ -317,7 +289,6 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # Credits
     st.markdown("""
     <div style='text-align: center; padding: 10px 0;'>
         <p style='color: #666; font-size: 0.75rem;'>
@@ -335,14 +306,11 @@ with st.sidebar:
 # 🏠 MAIN CONTENT AREA
 # ============================================
 
-# Top Brand Badge
 st.markdown("<div style='text-align: center; margin-bottom: 5px;'><span class='brand-badge'>🎬 SEMTUBE AI</span></div>", unsafe_allow_html=True)
 
-# Main Header
 st.markdown('<h1 class="main-header">SemTube</h1>', unsafe_allow_html=True)
 st.markdown('<p class="sub-header">Your Complete AI-Powered YouTube Automation System — 10 Pro Tools, 100% Free Forever</p>', unsafe_allow_html=True)
 
-# Stats Row
 st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
 
 stat_col1, stat_col2, stat_col3, stat_col4 = st.columns(4)
@@ -388,7 +356,6 @@ st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
 
 st.markdown("## 🎯 Select Your AI Tool")
 
-# Tool Categories in Tabs
 tab1, tab2, tab3 = st.tabs(["📝 Content Creation", "🔍 SEO & Optimization", "🎬 Advanced Tools"])
 
 with tab1:
@@ -426,17 +393,6 @@ with tab1:
         </div>
         """, unsafe_allow_html=True)
 
-    selected_content_tool = st.selectbox(
-        "Choose Content Tool:",
-        [
-            "🔥 Viral Video Ideas Generator",
-            "📜 Full Video Script Writer",
-            "🎯 Thumbnail Text Suggestions",
-            "💬 Comment Reply Generator"
-        ],
-        key="content_select"
-    )
-
 with tab2:
     st.markdown('<p class="tool-header">🔍 SEO & Optimization Tools</p>', unsafe_allow_html=True)
 
@@ -472,17 +428,6 @@ with tab2:
         </div>
         """, unsafe_allow_html=True)
 
-    selected_seo_tool = st.selectbox(
-        "Choose SEO Tool:",
-        [
-            "🏷️ Title Generator (10 Variants)",
-            "📝 SEO Description Writer",
-            "🔖 Trending Tags Finder",
-            "📊 Keyword Research Tool"
-        ],
-        key="seo_select"
-    )
-
 with tab3:
     st.markdown('<p class="tool-header">🎬 Advanced AI Tools</p>', unsafe_allow_html=True)
 
@@ -504,21 +449,6 @@ with tab3:
         </div>
         """, unsafe_allow_html=True)
 
-    selected_adv_tool = st.selectbox(
-        "Choose Advanced Tool:",
-        [
-            "📹 YouTube Video Summarizer",
-            "🎤 Hook Generator (First 5 Sec)"
-        ],
-        key="adv_select"
-    )
-
-# Determine which tool is actually selected based on last interaction
-# Use session state to track active tab
-if 'active_tool' not in st.session_state:
-    st.session_state.active_tool = "🔥 Viral Video Ideas Generator"
-
-# Tool selector unified
 st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
 st.markdown("## 🛠️ Active Tool Selection")
 
@@ -550,7 +480,6 @@ selected_tool = st.selectbox(
 st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
 st.markdown("## ✍️ Your Input")
 
-# Different input based on selected tool
 if selected_tool == "📹 YouTube Video Summarizer":
     user_input = st.text_input(
         "🔗 Enter YouTube Video URL:",
@@ -565,7 +494,6 @@ else:
         height=100
     )
 
-# Advanced Options
 with st.expander("⚙️ Advanced Options (Customize Your Output)", expanded=False):
     opt_col1, opt_col2, opt_col3 = st.columns(3)
 
@@ -621,7 +549,6 @@ with gen_col2:
 # ============================================
 
 if generate_btn:
-    # Validation
     if not api_key:
         st.error("⚠️ Please enter your Gemini API Key in the sidebar first!")
         st.markdown("""
@@ -642,37 +569,40 @@ if generate_btn:
         st.stop()
 
     try:
-        # Configure Gemini AI with fallback models
+        # Configure Gemini AI
         genai.configure(api_key=api_key)
         
-        # Try to use the latest available model
-        model_names = [
-            'gemini-2.0-flash-exp',      # Latest experimental
-            'gemini-1.5-pro-latest',     # Latest stable pro
-            'gemini-1.5-flash-latest',   # Latest stable flash
-            'gemini-1.5-pro',            # Standard pro
-            'gemini-pro'                 # Fallback
+        # ✅ FIXED: Use correct model name with fallback
+        model = None
+        model_options = [
+            "gemini-1.5-flash",
+            "gemini-1.5-pro", 
+            "gemini-pro",
+            "gemini-1.0-pro"
         ]
         
-        model = None
-        for model_name in model_names:
+        for model_name in model_options:
             try:
                 model = genai.GenerativeModel(model_name)
-                st.info(f"✅ Using model: {model_name}")
-                break
-            except Exception as model_error:
+                # Test the model with a simple request
+                test_response = model.generate_content("Hi")
+                if test_response:
+                    break
+            except:
                 continue
         
         if model is None:
-            st.error("❌ Could not initialize any Gemini model. Please check your API key.")
+            st.error("❌ Could not connect to Gemini AI. Please check your API key.")
             st.stop()
 
         # ============================================
         # 📋 PROMPT ENGINEERING FOR EACH TOOL
         # ============================================
 
+        prompt = ""
+
         if selected_tool == "🔥 Viral Video Ideas Generator":
-            prompt = f"""You are a top YouTube strategist with 10+ years of experience growing channels from 0 to millions.
+            prompt = f"""You are a top YouTube strategist with 10+ years of experience.
 
 Generate 10 highly viral and unique YouTube video ideas about: '{user_input}'
 
@@ -687,449 +617,233 @@ For EACH idea, provide:
 📊 **Estimated Difficulty**: (Easy / Medium / Hard to produce)
 💰 **Monetization Potential**: (Low / Medium / High)
 
-Format each idea clearly with numbers 1-10.
-Make each idea UNIQUE - no repetition!
-Focus on ideas that can realistically go viral in 2025."""
+Format each idea clearly with numbers 1-10."""
 
         elif selected_tool == "📜 Full Video Script Writer":
-            prompt = f"""You are a professional YouTube scriptwriter who has written scripts for channels with millions of subscribers.
+            prompt = f"""You are a professional YouTube scriptwriter.
 
-Write a complete, highly engaging YouTube video script about: '{user_input}'
+Write a complete YouTube video script about: '{user_input}'
 
 Target Audience: {target_audience}
 Tone: {tone}  
 Language: {language}
-Approximate Length: {length} words
+Length: {length} words
 
-SCRIPT STRUCTURE:
+STRUCTURE:
+🎣 **HOOK (0-5 seconds)**: Attention-grabbing opening
+📢 **INTRO (5-30 seconds)**: Introduce topic, state problem, build credibility
+📚 **MAIN CONTENT**: 3-5 clear sections with examples
+🔔 **CALL TO ACTION**: Subscribe, like, comment prompts
+👋 **OUTRO**: Summary and closing
 
-🎣 **HOOK (0-5 seconds)**:
-Write an attention-grabbing opening that makes viewers STOP scrolling. Use curiosity, shock value, or a bold claim.
-
-📢 **INTRO (5-30 seconds)**:
-- Introduce the topic
-- State the problem/opportunity
-- Tell viewers what they'll learn
-- Build credibility
-
-📚 **MAIN CONTENT (Body)**:
-- Break into 3-5 clear sections/points
-- Use storytelling and examples
-- Include transitions between points
-- Add "Pattern Interrupts" every 60-90 seconds (to maintain retention)
-- Include viewer engagement prompts ("Comment below if...")
-
-🔔 **CALL TO ACTION (Before Outro)**:
-- Ask to subscribe with specific reason
-- Like reminder
-- Comment prompt with specific question
-- Share request
-
-👋 **OUTRO (Last 15-20 seconds)**:
-- Summarize key takeaway
-- Tease next video
-- End with memorable closing line
-
-FORMATTING RULES:
-- Use [B-ROLL] markers for visual suggestions
-- Use [SHOW ON SCREEN] for text/graphic suggestions
-- Use [PAUSE] for dramatic effect
-- Write in conversational, spoken language
-- Add emotion cues [ENTHUSIASTIC], [SERIOUS], [WHISPER] etc.
-
-Make it feel natural, NOT robotic!"""
+Use [B-ROLL], [SHOW ON SCREEN], [PAUSE] markers."""
 
         elif selected_tool == "🏷️ Title Generator (10 Variants)":
-            prompt = f"""You are a YouTube SEO expert who specializes in creating high-CTR titles that rank #1 in search.
+            prompt = f"""You are a YouTube SEO expert.
 
-Generate 10 unique, high-performing YouTube video titles about: '{user_input}'
+Generate 10 high-CTR YouTube video titles about: '{user_input}'
 
 Language: {language}
 Tone: {tone}
 
-REQUIREMENTS FOR EACH TITLE:
-✅ Under 60 characters (STRICT)
-✅ Include at least ONE power word (Free, Secret, Proven, Ultimate, Insane, etc.)
+Requirements:
+✅ Under 60 characters
+✅ Include power words
 ✅ Use numbers where possible
-✅ Create a curiosity gap
-✅ Must make someone NEED to click
+✅ Create curiosity gap
 
-TITLE CATEGORIES (create variety):
-1-2: Number-based titles ("7 Ways...", "Top 5...")
-3-4: How-to titles ("How to..." "How I...")
-5-6: Curiosity/Mystery titles ("The Secret...", "Nobody Tells You...")
-7-8: Urgency titles ("Stop Doing This!", "Before It's Too Late...")
-9-10: Bold/Controversial titles ("I Was Wrong About...", "The Truth About...")
+Categories:
+1-2: Number-based
+3-4: How-to
+5-6: Curiosity/Mystery
+7-8: Urgency
+9-10: Bold/Controversial
 
-For each title also provide:
-📊 **Estimated CTR Potential**: ⭐⭐⭐⭐⭐ (rate 1-5)
-🎯 **Best For**: (Search / Browse / Both)
-
-Format as numbered list 1-10."""
+For each: Rate CTR potential ⭐⭐⭐⭐⭐"""
 
         elif selected_tool == "📝 SEO Description Writer":
-            prompt = f"""You are a YouTube SEO specialist who has helped 500+ channels rank on page 1.
+            prompt = f"""You are a YouTube SEO specialist.
 
-Write a fully SEO-optimized YouTube video description about: '{user_input}'
+Write an SEO-optimized description for: '{user_input}'
 
 Language: {language}
 Tone: {tone}
 
-DESCRIPTION STRUCTURE:
-
-📌 **FIRST 2 LINES (Above the fold - MOST IMPORTANT):**
-- Hook with main keyword naturally included
-- This appears in search results, make it compelling!
-- Under 150 characters
-
-📝 **PARAGRAPH 2 (Detailed Overview):**
-- 3-4 sentences explaining what the video covers
-- Include 3-5 relevant keywords naturally
-- Add value proposition
-
-⏱️ **TIMESTAMPS:**
-0:00 - Introduction
-[Generate 5-8 realistic timestamps based on topic]
-
-🔗 **RESOURCES & LINKS:**
-📌 [Resource 1 mentioned in video]
-📌 [Resource 2 mentioned in video]
-📌 Free Download: [Placeholder]
-
-📱 **SOCIAL MEDIA:**
-📸 Instagram: @[your-handle]
-🐦 Twitter: @[your-handle]
-💼 LinkedIn: [your-profile]
-🌐 Website: [your-website]
-
-📧 **BUSINESS INQUIRIES:**
-Email: [your-email]
-
-🏷️ **TAGS IN DESCRIPTION:**
-#hashtag1 #hashtag2 #hashtag3 #hashtag4 #hashtag5
-
-⚖️ **DISCLAIMER (if applicable):**
-[Standard disclaimer text]
-
-RULES:
-- Use main keyword in first sentence
-- Include 5-8 secondary keywords throughout
-- Total length: 200-300 words
-- Make it scannable with line breaks
-- Include call-to-action to subscribe"""
+Include:
+📌 First 2 lines with keyword (appears in search)
+📝 Detailed overview paragraph
+⏱️ Timestamps section
+🔗 Resources/Links placeholders
+📱 Social media placeholders
+🏷️ 5 relevant hashtags"""
 
         elif selected_tool == "🔖 Trending Tags Finder":
-            prompt = f"""You are a YouTube algorithm expert who understands how tags affect video discovery and ranking.
+            prompt = f"""You are a YouTube algorithm expert.
 
-Generate 30 highly effective, searchable tags for a YouTube video about: '{user_input}'
+Generate 30 tags for a video about: '{user_input}'
 
-ORGANIZE INTO 3 CATEGORIES:
+Categories:
+🔵 BROAD TAGS (10): High volume, 1-2 words
+🟡 MEDIUM-SPECIFIC (10): Moderate volume, 2-4 words
+🟢 LONG-TAIL (10): Low competition, 4-7 words
 
-🔵 **BROAD TAGS (10 tags):**
-- High search volume
-- General terms related to the topic
-- 1-2 word tags
-- These help YouTube understand your content category
-
-🟡 **MEDIUM-SPECIFIC TAGS (10 tags):**
-- Moderate search volume  
-- More specific to the exact topic
-- 2-4 word phrases
-- These help rank for specific searches
-
-🟢 **LONG-TAIL TAGS (10 tags):**
-- Lower competition
-- Very specific phrases
-- 4-7 word phrases
-- These help you rank faster as a small channel
-
-RULES:
-- Each tag under 30 characters
-- No duplicate concepts
-- Mix singular and plural forms
-- Include common misspellings if relevant
-- Include trending variations
+Rules: Under 30 chars each, no duplicates
 
 Also provide:
-📊 **Tag Strategy Tip**: One paragraph about how to best use these tags
-⚠️ **Tags to AVOID**: 3 tags that might seem relevant but would hurt performance"""
+📊 Tag Strategy Tip
+⚠️ 3 Tags to AVOID"""
 
         elif selected_tool == "📊 Keyword Research Tool":
-            prompt = f"""You are a YouTube keyword research expert with deep knowledge of search algorithms and trends.
+            prompt = f"""You are a YouTube keyword research expert.
 
-Perform comprehensive YouTube keyword research for: '{user_input}'
+Research keywords for: '{user_input}'
 
 Language: {language}
 Target Audience: {target_audience}
 
-PROVIDE:
+Provide:
+📈 5 HIGH VOLUME keywords with sample titles
+📉 5 LOW COMPETITION keywords with sample titles
+🎯 5 LONG-TAIL keywords with search intent
+🔥 3 TRENDING keywords
+💡 2 CONTENT GAP keywords
 
-📈 **1. HIGH VOLUME KEYWORDS (5 keywords):**
-For each keyword:
-- Keyword phrase
-- Estimated Monthly Searches: High/Very High
-- Competition Level: High
-- Best content type: (Tutorial/Review/List/Vlog)
-- Sample title using this keyword
-
-📉 **2. LOW COMPETITION KEYWORDS (5 keywords):**
-For each keyword:
-- Keyword phrase
-- Estimated Monthly Searches: Medium
-- Competition Level: Low
-- Why it's easy to rank for
-- Sample title using this keyword
-
-🎯 **3. LONG-TAIL KEYWORDS (5 keywords):**
-For each keyword:
-- Keyword phrase (4-7 words)
-- Search Intent: (Informational/Commercial/Navigational)
-- Competition Level: Very Low
-- Best for: (New channels/Established channels)
-- Sample title using this keyword
-
-🔥 **4. TRENDING KEYWORDS (3 keywords):**
-- Currently trending related terms
-- Why they're trending
-- Time sensitivity (Act now / Evergreen)
-
-💡 **5. CONTENT GAP KEYWORDS (2 keywords):**
-- Terms people search but few videos cover
-- Opportunity analysis
-
-📋 **STRATEGY RECOMMENDATION:**
-One paragraph about which keywords to target first and why."""
+📋 Strategy recommendation paragraph"""
 
         elif selected_tool == "🎤 Hook Generator (First 5 Sec)":
-            prompt = f"""You are a YouTube retention expert who specializes in the critical first 5 seconds of a video.
+            prompt = f"""You are a YouTube retention expert.
 
-Generate 10 POWERFUL hooks for a video about: '{user_input}'
+Generate 10 powerful hooks (first 5 seconds) for: '{user_input}'
 
 Tone: {tone}
 Language: {language}
-Target Audience: {target_audience}
 
-REQUIREMENTS FOR EACH HOOK:
-- Maximum 2 sentences (must be deliverable in 5 seconds)
-- Must create immediate curiosity, shock, or perceived value
-- Must make the viewer psychologically UNABLE to scroll away
-- Must connect to the actual video content (no clickbait)
+Categories:
+🤯 SHOCK HOOKS (2)
+❓ QUESTION HOOKS (2)
+💰 VALUE HOOKS (2)
+📖 STORY HOOKS (2)
+⚡ BOLD CLAIM HOOKS (2)
 
-HOOK CATEGORIES:
-
-🤯 **SHOCK HOOKS (2):**
-Start with a surprising fact or statement
-
-❓ **QUESTION HOOKS (2):**
-Ask a question the viewer desperately wants answered
-
-💰 **VALUE HOOKS (2):**
-Promise specific, tangible value immediately
-
-📖 **STORY HOOKS (2):**
-Start with a mini-story or personal experience
-
-⚡ **BOLD CLAIM HOOKS (2):**
-Make a confident, specific claim
-
-For each hook also provide:
-🎭 **Delivery Tip**: How to say it (tone, speed, expression)
-📊 **Retention Impact**: ⭐⭐⭐⭐⭐ (rate 1-5)
-
-Make each hook UNIQUE and IMPOSSIBLE to resist!"""
+For each:
+🎭 Delivery Tip
+📊 Retention Impact ⭐⭐⭐⭐⭐"""
 
         elif selected_tool == "🎯 Thumbnail Text Suggestions":
-            prompt = f"""You are a thumbnail design expert who has created thumbnails for videos with 10M+ views.
+            prompt = f"""You are a thumbnail design expert.
 
-Generate 10 thumbnail text options for a video about: '{user_input}'
+Generate 10 thumbnail text options for: '{user_input}'
 
 Tone: {tone}
 
-STRICT REQUIREMENTS:
-- Maximum 3-4 WORDS per text (thumbnails need BIG readable text)
-- Must be readable on a phone screen
-- Must create curiosity or emotion
-- Must complement (not repeat) the video title
+Requirements:
+- Maximum 3-4 WORDS
+- Must be readable on phone
+- Create curiosity/emotion
 
-TEXT CATEGORIES:
+Categories:
+😱 SHOCK/EMOTION (3)
+🔢 NUMBER-BASED (3)
+❓ CURIOSITY (2)
+🏆 VALUE/BENEFIT (2)
 
-😱 **SHOCK/EMOTION (3 options):**
-- Text that triggers emotional response
-- Example style: "IT'S OVER" / "I QUIT" / "NOT AGAIN"
-
-🔢 **NUMBER-BASED (3 options):**
-- Include specific numbers for credibility
-- Example style: "$10K/MONTH" / "IN 7 DAYS" / "100% FREE"
-
-❓ **CURIOSITY (2 options):**
-- Make viewer need to know more
-- Example style: "DON'T DO THIS" / "FINALLY..." / "THE TRUTH"
-
-🏆 **VALUE/BENEFIT (2 options):**
-- Promise clear benefit
-- Example style: "GAME CHANGER" / "EASY METHOD" / "IT WORKS"
-
-For each text also suggest:
-🎨 **Color**: Best text color for this specific text
-📍 **Position**: Where to place on thumbnail (top-left, center, bottom-right, etc.)
-✨ **Style**: Font style suggestion (Bold, Outline, 3D, etc.)
-🖼️ **Background Suggestion**: What should be in the thumbnail image behind the text"""
+For each suggest:
+🎨 Color
+📍 Position
+✨ Style"""
 
         elif selected_tool == "💬 Comment Reply Generator":
-            prompt = f"""You are a YouTube community manager expert who knows how to boost engagement through strategic comment replies.
+            prompt = f"""You are a YouTube community manager.
 
-Generate smart comment reply templates for a video about: '{user_input}'
+Generate comment reply templates for: '{user_input}'
 
 Tone: {tone}
 Language: {language}
 
-CREATE REPLIES FOR THESE CATEGORIES:
+Categories:
+😊 POSITIVE COMMENTS (4 replies)
+❓ QUESTION COMMENTS (4 replies)
+😤 CRITICAL COMMENTS (3 replies)
+🔥 ENGAGEMENT COMMENTS (3 replies)
 
-😊 **POSITIVE/PRAISE COMMENTS (4 replies):**
-Example comments: "Great video!", "This was so helpful!", "Best channel ever!"
-- Reply should: Thank them, encourage more engagement, ask a follow-up question
-
-❓ **QUESTION COMMENTS (4 replies):**
-Example comments: "How does this work?", "Can you explain more?", "What tool did you use?"
-- Reply should: Answer helpfully, add value, encourage them to watch another video
-
-😤 **CRITICAL/NEGATIVE COMMENTS (3 replies):**
-Example comments: "This doesn't work", "You're wrong about this", "Waste of time"
-- Reply should: Stay professional, address the concern, turn negativity into engagement
-
-🔥 **ENGAGEMENT BOOSTING COMMENTS (3 replies):**
-Example comments: "First!", "Who's watching in 2025?", Generic emoji comments
-- Reply should: Create conversation, ask questions, boost algorithm signals
-
-📌 **PINNED COMMENT SUGGESTION (1):**
-Write the perfect pinned comment for this video that:
-- Summarizes key value
-- Asks an engaging question
-- Encourages likes/subscriptions
-- Under 3 lines
-
-For each reply:
-✅ Make it feel PERSONAL (not copy-paste)
-✅ Include emoji naturally
-✅ Keep under 2-3 sentences
-✅ End with engagement trigger (question/CTA)"""
+📌 Also write 1 perfect PINNED COMMENT"""
 
         elif selected_tool == "📹 YouTube Video Summarizer":
-            # Extract video ID from URL
             video_id_match = re.search(r'(?:v=|\/)([0-9A-Za-z_-]{11}).*', user_input)
 
             if not video_id_match:
-                st.error("❌ Invalid YouTube URL! Please use format: https://www.youtube.com/watch?v=xxxxx")
+                st.error("❌ Invalid YouTube URL!")
                 st.stop()
 
             video_id = video_id_match.group(1)
 
-            # Get transcript
-            with st.spinner("📥 Downloading video transcript..."):
+            with st.spinner("📥 Downloading transcript..."):
                 try:
                     transcript_list = YouTubeTranscriptApi.get_transcript(video_id)
                     full_text = " ".join([t['text'] for t in transcript_list])
 
-                    # Try to get video title
                     try:
                         yt = YouTube(user_input)
                         video_title = yt.title
                         video_author = yt.author
-                        video_length = yt.length
-                        st.info(f"📹 **Video:** {video_title}\n\n👤 **Channel:** {video_author} | ⏱️ **Duration:** {video_length // 60} min {video_length % 60} sec")
                     except:
-                        video_title = "Unknown Title"
+                        video_title = "Unknown"
                         video_author = "Unknown"
-                        st.info(f"📹 Transcript downloaded successfully!")
 
-                except Exception as transcript_error:
-                    st.error(f"❌ Could not get transcript: {str(transcript_error)}")
-                    st.info("💡 This video might not have subtitles/captions enabled. Try a different video.")
+                    st.info(f"📹 Video: {video_title} | 👤 Channel: {video_author}")
+
+                except Exception as e:
+                    st.error(f"❌ Could not get transcript: {str(e)}")
                     st.stop()
 
-            prompt = f"""You are an expert content analyst. Summarize this YouTube video transcript comprehensively.
+            prompt = f"""Summarize this YouTube video:
 
-VIDEO TITLE: {video_title}
+VIDEO: {video_title}
 CHANNEL: {video_author}
-
-Language for summary: {language}
+Language: {language}
 
 TRANSCRIPT:
 {full_text[:5000]}
 
-PROVIDE:
+Provide:
+📋 QUICK SUMMARY (3-4 sentences)
+🔑 KEY POINTS (5-7 bullet points)
+💡 MAIN INSIGHT
+👥 WHO SHOULD WATCH
+✅ ACTION ITEMS (3-5)
+⭐ QUALITY RATING (1-5 stars)"""
 
-📋 **QUICK SUMMARY (TL;DR):**
-3-4 sentences capturing the entire video essence
-
-🔑 **KEY POINTS (Main Takeaways):**
-- List 5-7 most important points
-- Each point in 1-2 sentences
-- Include specific details/numbers mentioned
-
-💡 **MAIN INSIGHT:**
-The single most valuable takeaway from this video (1-2 sentences)
-
-📊 **CONTENT BREAKDOWN:**
-- Topic Category: [category]
-- Content Type: [tutorial/review/opinion/news/etc.]
-- Depth Level: [beginner/intermediate/advanced]
-
-👥 **WHO SHOULD WATCH:**
-1-2 sentences about who would benefit most from this video
-
-✅ **ACTION ITEMS:**
-3-5 specific things the viewer can do after watching
-
-🔗 **RELATED TOPICS:**
-5 related topics/videos the viewer might want to explore next
-
-⭐ **CONTENT QUALITY ASSESSMENT:**
-- Information Value: ⭐⭐⭐⭐⭐ (rate 1-5)
-- Practical Usefulness: ⭐⭐⭐⭐⭐ (rate 1-5)
-- Uniqueness: ⭐⭐⭐⭐⭐ (rate 1-5)"""
-
-        # ============================================
-        # 🚀 GENERATE CONTENT WITH AI
-        # ============================================
-
-        # Progress Animation
+        # Generate with AI
         progress_placeholder = st.empty()
         progress_bar = st.progress(0)
 
-        progress_messages = [
-            "🧠 Initializing SemTube AI Engine...",
-            "🔍 Analyzing your request...",
-            "📊 Processing with Gemini AI...",
-            "✍️ Generating premium content...",
-            "✨ Polishing the output...",
-            "🎯 Almost there..."
+        messages = [
+            "🧠 Initializing SemTube AI...",
+            "🔍 Analyzing request...",
+            "📊 Processing with Gemini...",
+            "✍️ Generating content...",
+            "✨ Polishing output...",
+            "🎯 Almost done..."
         ]
 
-        for i, msg in enumerate(progress_messages):
+        for i, msg in enumerate(messages):
             progress_placeholder.markdown(f'<p class="loading-text">{msg}</p>', unsafe_allow_html=True)
             progress_bar.progress((i + 1) * 16)
-            time.sleep(0.5)
+            time.sleep(0.4)
 
-        # Generate with Gemini
         response = model.generate_content(prompt)
 
         progress_bar.progress(100)
         progress_placeholder.empty()
         progress_bar.empty()
 
-        # ============================================
-        # 📋 DISPLAY RESULTS
-        # ============================================
-
-        # Success Banner
+        # Display Results
         st.markdown("""
         <div class="success-banner">
-            ✅ Content Generated Successfully by SemTube AI!
+            ✅ Content Generated Successfully!
         </div>
         """, unsafe_allow_html=True)
 
-        # Tool Used Badge
         st.markdown(f"""
         <div style='text-align: center; margin: 10px 0;'>
             <span style='background: rgba(255,0,0,0.1); color: #FF6B6B; padding: 5px 15px; 
@@ -1139,10 +853,8 @@ The single most valuable takeaway from this video (1-2 sentences)
         </div>
         """, unsafe_allow_html=True)
 
-        # Main Result
         st.markdown("### 📋 Your Generated Content:")
 
-        # Format the response text for HTML display
         formatted_text = response.text.replace('\n', '<br>')
 
         st.markdown(f"""
@@ -1151,110 +863,90 @@ The single most valuable takeaway from this video (1-2 sentences)
         </div>
         """, unsafe_allow_html=True)
 
-        # Action Buttons Row
         st.markdown("### 📥 Export Options:")
 
-        export_col1, export_col2, export_col3 = st.columns(3)
+        export_col1, export_col2 = st.columns(2)
 
         with export_col1:
-            # Copy-friendly text box
             st.text_area(
-                "📋 Copy-Paste Friendly Version:",
+                "📋 Copy-Paste Version:",
                 response.text,
-                height=300,
-                help="Click inside, Ctrl+A to select all, Ctrl+C to copy"
+                height=300
             )
 
         with export_col2:
-            # Download as TXT
             st.download_button(
                 label="📥 Download as .TXT",
                 data=response.text,
-                file_name=f"SemTube_{selected_tool.replace(' ', '_').replace('/', '_')}.txt",
+                file_name=f"SemTube_Output.txt",
                 mime="text/plain",
                 use_container_width=True
             )
 
-            # Download as Markdown
             st.download_button(
                 label="📄 Download as .MD",
-                data=f"# SemTube AI Generated Content\n## Tool: {selected_tool}\n\n---\n\n{response.text}",
-                file_name=f"SemTube_{selected_tool.replace(' ', '_').replace('/', '_')}.md",
+                data=f"# SemTube AI Output\n\n{response.text}",
+                file_name=f"SemTube_Output.md",
                 mime="text/markdown",
                 use_container_width=True
             )
 
-        with export_col3:
-            st.markdown("""
-            <div style='background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; 
-                        border: 1px solid rgba(255,255,255,0.1); height: 100%;'>
-                <h4 style='color: #FF6B6B; margin-bottom: 10px;'>💡 Pro Tips:</h4>
-                <p style='color: #ccc; font-size: 0.85rem; line-height: 1.8;'>
-                    • Always customize AI content with your personal touch<br>
-                    • Test different tones for best results<br>
-                    • Combine multiple tools for a complete workflow<br>
-                    • Re-generate for different variations
-                </p>
-            </div>
-            """, unsafe_allow_html=True)
-
-        # Regenerate suggestion
-        st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
-        st.info("🔄 **Want different results?** Change the tone, language, or rephrase your topic and click Generate again!")
+        st.info("🔄 Want different results? Change options and click Generate again!")
 
     except Exception as e:
-        st.error(f"❌ An error occurred: {str(e)}")
-
-        # Detailed error handling
-        error_msg = str(e).lower()
-
-        if "404" in error_msg or "not found" in error_msg or "model" in error_msg:
-            st.markdown("""
-            <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #FF0000; margin: 10px 0;'>
-                <h4 style='color: #FF6B6B;'>🤖 Model Not Available:</h4>
-                <ul style='color: #ccc; line-height: 2;'>
-                    <li>The Gemini model version may have changed</li>
-                    <li>Try updating to the latest model name</li>
-                    <li>Check <a href='https://ai.google.dev/models/gemini' target='_blank' style='color: #FF6B6B;'>Google AI Models</a> for available versions</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-
-        elif "api" in error_msg or "key" in error_msg or "invalid" in error_msg:
-            st.markdown("""
-            <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #FF0000; margin: 10px 0;'>
-                <h4 style='color: #FF6B6B;'>🔑 API Key Issue:</h4>
-                <ul style='color: #ccc; line-height: 2;'>
-                    <li>Make sure your API key is correct (no extra spaces)</li>
-                    <li>Try generating a new key from <a href='https://aistudio.google.com' target='_blank' style='color: #FF6B6B;'>aistudio.google.com</a></li>
-                    <li>Ensure you haven't exceeded the free quota</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-
-        elif "quota" in error_msg or "limit" in error_msg or "rate" in error_msg:
-            st.markdown("""
-            <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #FFB800; margin: 10px 0;'>
-                <h4 style='color: #FFB800;'>⏳ Rate Limit Reached:</h4>
-                <ul style='color: #ccc; line-height: 2;'>
-                    <li>You've made too many requests in a short time</li>
-                    <li>Wait 1-2 minutes and try again</li>
-                    <li>The free tier allows ~60 requests per minute</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-
-        elif "network" in error_msg or "connection" in error_msg:
-            st.markdown("""
-            <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #4A90D9; margin: 10px 0;'>
-                <h4 style='color: #4A90D9;'>🌐 Connection Issue:</h4>
-                <ul style='color: #ccc; line-height: 2;'>
-                    <li>Check your internet connection</li>
-                    <li>Try refreshing the page</li>
-                    <li>If using VPN, try disabling it</li>
-                </ul>
-            </div>
-            """, unsafe_allow_html=True)
-
+        st.error(f"❌ Error: {str(e)}")
+        
+        if "404" in str(e) or "not found" in str(e).lower():
+            st.warning("🔧 Model issue detected. Please try again.")
+        elif "quota" in str(e).lower() or "limit" in str(e).lower():
+            st.warning("⏳ Rate limit reached. Wait 1 minute and try again.")
         else:
-            st.info("💡 Try refreshing the page and attempting again. If the issue persists, check your API key and internet connection.")
+            st.info("💡 Check your API key and try again.")
+
+
+# ============================================
+# 📊 WORKFLOW GUIDE
+# ============================================
+
+st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
+
+with st.expander("📋 Complete YouTube Workflow Guide", expanded=False):
+    st.markdown("""
+    ### 🎬 SemTube Complete Video Production Workflow
+
+    | Step | Tool | Output |
+    |------|------|--------|
+    | 1️⃣ | Viral Video Ideas | 10 trending ideas |
+    | 2️⃣ | Keyword Research | Best keywords |
+    | 3️⃣ | Full Script Writer | Complete script |
+    | 4️⃣ | Hook Generator | Perfect opening |
+    | 5️⃣ | *Record Video* | Your content |
+    | 6️⃣ | Thumbnail Text | Bold text options |
+    | 7️⃣ | Title Generator | 10 title options |
+    | 8️⃣ | SEO Description | Optimized description |
+    | 9️⃣ | Trending Tags | 30 tags |
+    | 🔟 | Comment Replies | Engagement templates |
+    """)
+
+
+# ============================================
+# 🦶 FOOTER
+# ============================================
+
+st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class="footer-section">
+    <div style='font-size: 2rem; margin-bottom: 10px;'>🎬</div>
+    <h3>SemTube — AI YouTube Empire</h3>
+    <p>
+        ✅ 10 Pro Tools | ✅ Unlimited Use | ✅ 100% Free Forever
+    </p>
+    <p style='font-size: 0.85rem; color: #555;'>
+        Powered by Google Gemini AI • Made with ❤️ by SemTube Team
+    </p>
+    <p style='font-size: 0.75rem; color: #444;'>
+        © 2025 SemTube v2.0
+    </p>
+</div>
+""", unsafe_allow_html=True)
