@@ -642,9 +642,31 @@ if generate_btn:
         st.stop()
 
     try:
-        # Configure Gemini AI
+        # Configure Gemini AI with fallback models
         genai.configure(api_key=api_key)
-model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        # Try to use the latest available model
+        model_names = [
+            'gemini-2.0-flash-exp',      # Latest experimental
+            'gemini-1.5-pro-latest',     # Latest stable pro
+            'gemini-1.5-flash-latest',   # Latest stable flash
+            'gemini-1.5-pro',            # Standard pro
+            'gemini-pro'                 # Fallback
+        ]
+        
+        model = None
+        for model_name in model_names:
+            try:
+                model = genai.GenerativeModel(model_name)
+                st.info(f"✅ Using model: {model_name}")
+                break
+            except Exception as model_error:
+                continue
+        
+        if model is None:
+            st.error("❌ Could not initialize any Gemini model. Please check your API key.")
+            st.stop()
+
         # ============================================
         # 📋 PROMPT ENGINEERING FOR EACH TOOL
         # ============================================
@@ -1186,7 +1208,19 @@ The single most valuable takeaway from this video (1-2 sentences)
         # Detailed error handling
         error_msg = str(e).lower()
 
-        if "api" in error_msg or "key" in error_msg or "invalid" in error_msg:
+        if "404" in error_msg or "not found" in error_msg or "model" in error_msg:
+            st.markdown("""
+            <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #FF0000; margin: 10px 0;'>
+                <h4 style='color: #FF6B6B;'>🤖 Model Not Available:</h4>
+                <ul style='color: #ccc; line-height: 2;'>
+                    <li>The Gemini model version may have changed</li>
+                    <li>Try updating to the latest model name</li>
+                    <li>Check <a href='https://ai.google.dev/models/gemini' target='_blank' style='color: #FF6B6B;'>Google AI Models</a> for available versions</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+
+        elif "api" in error_msg or "key" in error_msg or "invalid" in error_msg:
             st.markdown("""
             <div style='background: #1a1a2e; padding: 20px; border-radius: 12px; border-left: 4px solid #FF0000; margin: 10px 0;'>
                 <h4 style='color: #FF6B6B;'>🔑 API Key Issue:</h4>
@@ -1224,65 +1258,3 @@ The single most valuable takeaway from this video (1-2 sentences)
 
         else:
             st.info("💡 Try refreshing the page and attempting again. If the issue persists, check your API key and internet connection.")
-
-
-# ============================================
-# 📊 WORKFLOW GUIDE SECTION
-# ============================================
-
-st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
-
-with st.expander("📋 Complete YouTube Workflow Guide — Use All 10 Tools in Order", expanded=False):
-    st.markdown("""
-    ### 🎬 The SemTube Complete Video Production Workflow
-
-    Follow these steps for EVERY video to maximize views and growth:
-
-    ---
-
-    | Step | Tool to Use | What You Get |
-    |------|------------|--------------|
-    | 1️⃣ | **Viral Video Ideas Generator** | 10 trending video ideas for your niche |
-    | 2️⃣ | **Keyword Research Tool** | Best keywords to target for SEO |
-    | 3️⃣ | **Full Video Script Writer** | Complete script ready to record |
-    | 4️⃣ | **Hook Generator** | Perfect opening for maximum retention |
-    | 5️⃣ | 🎥 *Record Your Video* | *(Use the script!)* |
-    | 6️⃣ | **Thumbnail Text Suggestions** | Bold text for eye-catching thumbnails |
-    | 7️⃣ | **Title Generator** | 10 click-worthy title options |
-    | 8️⃣ | **SEO Description Writer** | Optimized description with keywords |
-    | 9️⃣ | **Trending Tags Finder** | 30 tags for maximum discoverability |
-    | 🔟 | **Comment Reply Generator** | Engage your audience professionally |
-
-    ---
-
-    **🏆 BONUS:** Use the **Video Summarizer** to analyze competitor videos in your niche!
-    """)
-
-
-# ============================================
-# 🦶 FOOTER
-# ============================================
-
-st.markdown('<div class="custom-divider"></div>', unsafe_allow_html=True)
-
-st.markdown("""
-<div class="footer-section">
-    <div style='font-size: 2rem; margin-bottom: 10px;'>🎬</div>
-    <h3>SemTube — AI YouTube Empire</h3>
-    <p>
-        ✅ 10 Professional AI Tools &nbsp;|&nbsp; 
-        ✅ Unlimited Generations &nbsp;|&nbsp; 
-        ✅ 100% Free Forever<br>
-        ✅ No Login Required &nbsp;|&nbsp; 
-        ✅ Privacy First &nbsp;|&nbsp; 
-        ✅ Lightning Fast AI
-    </p>
-    <br>
-    <p style='font-size: 0.85rem; color: #555;'>
-        Powered by Google Gemini AI &nbsp;•&nbsp; Built with Streamlit &nbsp;•&nbsp; Made with ❤️ by SemTube Team
-    </p>
-    <p style='font-size: 0.75rem; color: #444; margin-top: 5px;'>
-        © 2025 SemTube. All rights reserved. &nbsp;•&nbsp; v2.0
-    </p>
-</div>
-""", unsafe_allow_html=True)
